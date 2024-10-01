@@ -29,15 +29,19 @@
       --secondarytext: #666;
       --accent: #0188fd;
       --accent-hover: #0056b3;
+      --border-color: #ccc;
+      --input-bg: #f1f1f1;
     }
 
     /* root when body has dark class */
     :root body.dark {
-      --bg: #15131f;
+      --bg: #0d1117;
       --primarytext: #f9f9f9;
       --secondarytext: #ccc;
       --accent: #0188fd;
       --accent-hover: #0056b3;
+      --border-color: #fff1;
+      --input-bg: #fff1;
     }
 
     body {
@@ -51,7 +55,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 5%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid var(--border-color);
     }
 
     .social-icons {
@@ -105,7 +109,7 @@
 
     .left {
       padding: 2rem;
-      border-right: 1px solid #ccc;
+      border-right: 1px solid var(--border-color);
     }
 
     .left h1 {
@@ -170,7 +174,8 @@
 
     input {
       padding: 0.5rem 1rem;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border-color);
+      background: var(--input-bg);
       border-radius: 10px;
       outline: none;
     }
@@ -185,7 +190,7 @@
       cursor: pointer;
     }
   </style>
-  <body class="light">
+  <body class="dark">
     <header>
       <div class="social-icons">
         <a href="https://instagram.com/campusly.in">
