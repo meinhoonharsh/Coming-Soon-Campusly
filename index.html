@@ -81,6 +81,29 @@
       box-sizing: border-box;
     }
 
+    .glow {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      border-radius: 50%;
+      background: #fff0;
+      box-shadow: 0 0 1000px 110px var(--color);
+    }
+
+    .bottom-left {
+      bottom: 0;
+      left: 0;
+      /* blue */
+      --color: #0188fd;
+    }
+
+    .top-right {
+      top: 0;
+      right: 0;
+      /* pink */
+      --color: #792dc3;
+    }
+
     /* Color Pallete for Dark Mode and Light Mode */
     /* root when body has light class */
     :root body.light {
@@ -259,6 +282,8 @@
     }
   </style>
   <body class="dark">
+    <div class="glow bottom-left"></div>
+    <div class="glow top-right"></div>
     <header>
       <div class="social-icons">
         <a href="https://instagram.com/campusly.in">
