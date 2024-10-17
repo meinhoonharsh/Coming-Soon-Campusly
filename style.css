@@ -203,3 +203,81 @@ button {
   font-weight: 600;
   cursor: pointer;
 }
+
+/* Media for less than 768 */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 5%;
+  }
+
+  .main {
+    width: 95%;
+  }
+
+  .left {
+    padding: 1rem;
+    border-right: none;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .right {
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  .features span {
+    margin-right: 1rem;
+  }
+
+  .poster {
+    width: 100%;
+  }
+}
+
+/* Media for less than 500 */
+@media (max-width: 500px) {
+  .left h1 {
+    font-size: 1.8rem;
+  }
+
+  .right h1 {
+    font-size: 1.8rem;
+  }
+
+  .features span {
+    font-size: 0.9rem;
+  }
+
+  .right span {
+    font-size: 0.9rem;
+  }
+
+  form div {
+    gap: 0.5rem;
+  }
+
+  input {
+    padding: 0.5rem 0.8rem;
+  }
+
+  button {
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+/* Media for less than 400 */
+@media (max-width: 400px) {
+  .logo span {
+    font-size: 1.2rem;
+  }
+  .logo img {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+  }
+
+  .left h1 {
+    font-size: 1.6rem;
+  }
+}
