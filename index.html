@@ -153,10 +153,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <!-- Module script -->
-    <script type="module">
-      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+    <script>
+      const { createClient } = supabase;
 
-      const supabase = createClient(
+      const _supabase = createClient(
         "https://nehfwedvypqzkxctviiw.supabase.co",
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5laGZ3ZWR2eXBxemt4Y3R2aWl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgxNTI0MjEsImV4cCI6MjA0MzcyODQyMX0.wWlHTlQ9LcHgeReMBfkHs-9gfCu_ouB7AyPJqNEcRUA"
       );
@@ -170,7 +170,7 @@
         const contact = document.getElementById("contact").value;
         const college = document.getElementById("college").value;
 
-        const { data, error } = await supabase
+        const { data, error } = await _supabase
           .from("waitlist_users")
           .insert([{ name, email, contact, college }]);
 
