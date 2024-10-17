@@ -11,6 +11,7 @@
   border-radius: 50%;
   background: #fff0;
   box-shadow: 0 0 1000px 110px var(--color);
+  z-index: -1;
 }
 
 .bottom-left {
