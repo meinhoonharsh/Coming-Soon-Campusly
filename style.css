@@ -60,7 +60,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
+  padding: 1rem 7%;
   border-bottom: 1px solid var(--border-color);
 }
 

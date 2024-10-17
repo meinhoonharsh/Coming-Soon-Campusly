@@ -80,6 +80,11 @@
     <div class="glow bottom-left"></div>
     <div class="glow top-right"></div>
     <header>
+      <div class="logo">
+        <img src="logo.png" alt="Campusly Logo" />
+        <span>Campusly.in</span>
+      </div>
+
       <div class="social-icons">
         <a href="https://instagram.com/campusly.in">
           <i class="fab fa-instagram"></i>
@@ -90,18 +95,6 @@
         <a href="https://wa.me/916264295091">
           <i class="fab fa-whatsapp"></i>
         </a>
-      </div>
-
-      <div class="logo">
-        <img src="logo.png" alt="Campusly Logo" />
-        <span>Campusly.in</span>
-      </div>
-
-      <div class="theme">
-        <span>
-          <i class="fas fa-sun"></i>
-          Light
-        </span>
       </div>
     </header>
 
@@ -152,10 +145,41 @@
               id="college"
               placeholder="Your College..."
             />
-            <button type="submit">Join Waitlist</button>
+            <button id="formsubmit" type="submit">Join Waitlist</button>
           </div>
         </form>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Module script -->
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+
+      const supabase = createClient(
+        "https://nehfwedvypqzkxctviiw.supabase.co",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5laGZ3ZWR2eXBxemt4Y3R2aWl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgxNTI0MjEsImV4cCI6MjA0MzcyODQyMX0.wWlHTlQ9LcHgeReMBfkHs-9gfCu_ouB7AyPJqNEcRUA"
+      );
+
+      submitBtn = document.getElementById("formsubmit");
+      submitBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const contact = document.getElementById("contact").value;
+        const college = document.getElementById("college").value;
+
+        const { data, error } = await supabase
+          .from("waitlist_users")
+          .insert([{ name, email, contact, college }]);
+
+        if (error) {
+          alert("An error occurred. Please try again later.");
+        } else {
+          alert("Thank you for joining the waitlist. We will notify you soon.");
+        }
+      });
+    </script>
   </body>
 </html>
