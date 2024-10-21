@@ -74,11 +74,90 @@
     />
 
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .success-msg-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .success-msg {
+        background: var(--bg);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3em;
+      }
+
+      .modal-glow {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        border-radius: 50%;
+        background: #fff0;
+        box-shadow: 0 0 1000px 110px var(--color);
+        z-index: -1;
+      }
+
+      .success-msg h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .success-msg p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+
+      .success-msg button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+    </style>
   </head>
 
   <body class="dark">
     <div class="glow bottom-left"></div>
     <div class="glow top-right"></div>
+
+    <div class="success-msg-container">
+      <div class="success-msg">
+        <div class="modal-glow bottom-left"></div>
+        <div class="modal-glow top-right"></div>
+
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+          src="https://lottie.host/931b7b4e-acd1-4d94-91f8-7418dbf44b14/wUWBWV7Ddb.json"
+          background="var(--bg)"
+          speed="1"
+          style="width: 150px; height: 150px"
+          autoplay
+          direction="1"
+          mode="normal"
+        ></lottie-player>
+        <h1>Thank you for Joining</h1>
+        <p>We will notify you soon.</p>
+
+        <button id="close-modal">Okay, Great</button>
+      </div>
+    </div>
+
     <header>
       <div class="logo">
         <img src="logo.png" alt="Campusly Logo" />
@@ -225,7 +304,17 @@
           alert("An error occurred. Please try again later.");
         } else {
           blowConfetti();
-          alert("Thank you for joining the waitlist. We will notify you soon.");
+          document.querySelector(".success-msg-container").style.display =
+            "flex";
+
+          document.getElementById("form").reset();
+
+          document
+            .getElementById("close-modal")
+            .addEventListener("click", () => {
+              document.querySelector(".success-msg-container").style.display =
+                "none";
+            });
         }
       });
     </script>
