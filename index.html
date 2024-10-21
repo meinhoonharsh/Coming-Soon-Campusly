@@ -156,10 +156,11 @@
     <script>
       const { createClient } = supabase;
 
-      const _supabase = createClient(
-        "https://nehfwedvypqzkxctviiw.supabase.co",
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5laGZ3ZWR2eXBxemt4Y3R2aWl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgxNTI0MjEsImV4cCI6MjA0MzcyODQyMX0.wWlHTlQ9LcHgeReMBfkHs-9gfCu_ouB7AyPJqNEcRUA"
-      );
+      const basepath = "https://nehfwedvypqzkxctviiw.supabase.co";
+      const key =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5laGZ3ZWR2eXBxemt4Y3R2aWl3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyODE1MjQyMSwiZXhwIjoyMDQzNzI4NDIxfQ.5LO-ET_RnkrIvWvcDyS1B9lm2q9ty7UsRLfUttvloaw";
+
+      const _supabase = createClient(basepath, key);
 
       submitBtn = document.getElementById("formsubmit");
       submitBtn.addEventListener("click", async (e) => {
