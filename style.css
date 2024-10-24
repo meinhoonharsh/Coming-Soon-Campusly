@@ -210,6 +210,60 @@ button {
   cursor: pointer;
 }
 
+.success-msg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-msg {
+  background: var(--bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+}
+
+.modal-glow {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: #fff0;
+  box-shadow: 0 0 1000px 110px var(--color);
+  z-index: -1;
+}
+
+.success-msg h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.success-msg p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.success-msg button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 /* Media for less than 768 */
 @media (max-width: 768px) {
   header {
