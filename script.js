@@ -52,29 +52,33 @@ const key =
 
 const _supabase = createClient(basepath, key);
 
-submitBtn = document.getElementById("formsubmit");
-submitBtn.addEventListener("click", async (e) => {
-  e.preventDefault();
+// submitBtn = document.getElementById("formsubmit");
+// submitBtn.addEventListener("click", async (e) => {
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const contact = document.getElementById("contact").value;
-  const college = document.getElementById("college").value;
+document
+  .getElementById("waitlist_form")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const { data, error } = await _supabase
-    .from("waitlist_users")
-    .insert([{ name, email, contact, college }]);
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const contact = document.getElementById("contact").value;
+    const college = document.getElementById("college").value;
 
-  if (error) {
-    alert("An error occurred. Please try again later.");
-  } else {
-    blowConfetti();
-    document.querySelector(".success-msg-container").style.display = "flex";
+    const { data, error } = await _supabase
+      .from("waitlist_users")
+      .insert([{ name, email, contact, college }]);
 
-    document.getElementById("form").reset();
+    if (error) {
+      alert("An error occurred. Please try again later.");
+    } else {
+      blowConfetti();
+      document.querySelector(".success-msg-container").style.display = "flex";
 
-    document.getElementById("close-modal").addEventListener("click", () => {
-      document.querySelector(".success-msg-container").style.display = "none";
-    });
-  }
-});
+      document.getElementById("waitlist_form").reset();
+
+      document.getElementById("close-modal").addEventListener("click", () => {
+        document.querySelector(".success-msg-container").style.display = "none";
+      });
+    }
+  });
